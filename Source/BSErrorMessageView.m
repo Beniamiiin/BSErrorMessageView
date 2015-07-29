@@ -2,30 +2,43 @@
 //  BSErrorMessageView.m
 //
 //  Created by Beniamin Sarkisyan on 05.07.15.
+//  Copyright (c) 2015 Cleverpumpkin, Ltd. All rights reserved.
 //
 
 #import "BSErrorMessageView.h"
 
+static const UILayoutPriority BSLayoutPriorityAlmostRequired = UILayoutPriorityRequired-1;
+
+static CGFloat const kBSMessageLabelLeadingConstant  = 10.f;
+static CGFloat const kBSMessageLabelTrailingConstant = -13.5f;
+
 @interface BSErrorMessageView ()
 {
-    UIColor *_tintColor;
+    UIColor *_messageContainerTintColor;
+    UIColor *_iconTintColor;
     UIColor *_textColor;
     UIFont *_textFont;
     CGFloat _rightPadding;
     CGFloat _containerHeight;
+    NSTimeInterval _showMessageAnimationDuration;
+    BOOL _messageAlwaysShowing;
+    BOOL _messageDefaultHidden;
 }
 
 @property (nonatomic, weak) UIImageView *errorBGImageView;
 @property (nonatomic, weak) UILabel *messageLabel;
-@property (nonatomic, weak) UIImageView *errorIconImageView;
+@property (nonatomic, weak) UIButton *errorIconButton;
 
+@property (nonatomic, strong) NSLayoutConstraint *errorBGImageViewWidthConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *messageLabelLeadingConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *messageLabelTrailingConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *errorIconTrailingConstraint;
 
 @end
 
 @implementation BSErrorMessageView
 
-@dynamic message, tintColor, textColor, textFont, rightPadding, containerHeight;
+@dynamic message, mainTintColor, messageContainerTintColor, iconTintColor, textColor, textFont, rightPadding, containerHeight, showMessageAnimationDuration, messageAlwaysShowing, messageDefaultHidden;
 
 + (instancetype)errorMessageViewWithMessage:(NSString *)message
 {
@@ -59,17 +72,39 @@
     [self reloadWith];
 }
 
-- (UIColor *)tintColor
+- (UIColor *)mainTintColor
 {
-    return _tintColor;
+    return CGColorEqualToColor(self.messageContainerTintColor.CGColor, self.iconTintColor.CGColor) ? self.messageContainerTintColor : nil;
 }
 
-- (void)setTintColor:(UIColor *)tintColor
+- (void)setMainTintColor:(UIColor *)mainTintColor
 {
-    _tintColor = tintColor;
+    self.messageContainerTintColor = mainTintColor;
+    self.iconTintColor = mainTintColor;
+}
+
+- (UIColor *)messageContainerTintColor
+{
+    return _messageContainerTintColor;
+}
+
+- (void)setMessageContainerTintColor:(UIColor *)messageContainerTintColor
+{
+    _messageContainerTintColor = messageContainerTintColor;
     
-    self.errorBGImageView.tintColor = _tintColor;
-    self.errorIconImageView.tintColor = _tintColor;
+    self.errorBGImageView.tintColor = _messageContainerTintColor;
+}
+
+- (UIColor *)iconTintColor
+{
+    return _iconTintColor;
+}
+
+- (void)setIconTintColor:(UIColor *)iconTintColor
+{
+    _iconTintColor = iconTintColor;
+    
+    self.errorIconButton.imageView.tintColor = _iconTintColor;
 }
 
 - (UIColor *)textColor
@@ -124,6 +159,54 @@
     self.frame = frame;
 }
 
+- (NSTimeInterval)showMessageAnimationDuration
+{
+    return _showMessageAnimationDuration;
+}
+
+- (void)setShowMessageAnimationDuration:(NSTimeInterval)showMessageAnimationDuration
+{
+    _showMessageAnimationDuration = showMessageAnimationDuration;
+}
+
+- (BOOL)messageAlwaysShowing
+{
+    return _messageAlwaysShowing;
+}
+
+- (void)setMessageAlwaysShowing:(BOOL)messageAlwaysShowing
+{
+    _messageAlwaysShowing = messageAlwaysShowing;
+    
+    if ( _messageAlwaysShowing )
+    {
+        [self setupAlwaysShowingMessageView];
+    }
+    else
+    {
+        [self setupNonAlwaysShowingMessageView];
+    }
+}
+
+- (BOOL)messageDefaultHidden
+{
+    return _messageDefaultHidden;
+}
+
+- (void)setMessageDefaultHidden:(BOOL)messageDefaultHidden
+{
+    _messageDefaultHidden = messageDefaultHidden;
+    
+    if ( _messageDefaultHidden )
+    {
+        [self hideMessageContainer];
+    }
+    else
+    {
+        [self showMessageContainer];
+    }
+}
+
 #pragma mark - Setup methods
 - (void)setup
 {
@@ -134,11 +217,17 @@
 
 - (void)setupDefaultSettings
 {
-    _tintColor = [UIColor redColor];
+    UIColor *tintColor = [UIColor redColor];
+    
+    _messageContainerTintColor = tintColor;
+    _iconTintColor = tintColor;
     _textColor = [UIColor whiteColor];
     _textFont = [UIFont systemFontOfSize:11.f];
-    _rightPadding = 7.f;
+    _rightPadding = 0.f;
     _containerHeight = 25.f;
+    _showMessageAnimationDuration = 0.3f;
+    _messageAlwaysShowing = NO;
+    _messageDefaultHidden = YES;
 }
 
 - (void)setupViews
@@ -158,7 +247,8 @@
         
         UIImageView *errorBGImageView = [[UIImageView alloc] initWithImage:errorBGImage];
         errorBGImageView.translatesAutoresizingMaskIntoConstraints = NO;
-        errorBGImageView.tintColor = self.tintColor;
+        errorBGImageView.tintColor = self.mainTintColor;
+        errorBGImageView.alpha = 0.f;
         
         [self addSubview:errorBGImageView];
         self.errorBGImageView = errorBGImageView;
@@ -170,12 +260,14 @@
         UIImage *errorIconImage = [[UIImage alloc] initWithContentsOfFile:errorIconImagePath];
         errorIconImage = [errorIconImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         
-        UIImageView *errorIconImageView = [[UIImageView alloc] initWithImage:errorIconImage];
-        errorIconImageView.translatesAutoresizingMaskIntoConstraints = NO;
-        errorIconImageView.tintColor = self.tintColor;
+        UIButton *errorIconButton = [UIButton new];
+        errorIconButton.translatesAutoresizingMaskIntoConstraints = NO;
+        errorIconButton.tintColor = self.mainTintColor;
+        [errorIconButton setImage:errorIconImage forState:UIControlStateNormal];
+        [errorIconButton addTarget:self action:@selector(errorIconButtonAction) forControlEvents:UIControlEventTouchUpInside];
         
-        [self addSubview:errorIconImageView];
-        self.errorIconImageView = errorIconImageView;
+        [self addSubview:errorIconButton];
+        self.errorIconButton = errorIconButton;
     }
     
     // error message label
@@ -195,7 +287,7 @@
     NSDictionary *views = @{
                             @"errorBG"   : self.errorBGImageView,
                             @"message"   : self.messageLabel,
-                            @"errorIcon" : self.errorIconImageView
+                            @"errorIcon" : self.errorIconButton
                             };
     // vertical
     {
@@ -207,11 +299,11 @@
                                                                      options:0
                                                                      metrics:nil
                                                                        views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[errorIcon(20)]"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[errorIcon(30)]"
                                                                      options:0
                                                                      metrics:nil
                                                                        views:views]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.errorIconImageView
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.errorIconButton
                                                          attribute:NSLayoutAttributeCenterY
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:self.errorBGImageView
@@ -222,16 +314,46 @@
     
     // horizontal
     {
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[errorBG]-(3)-[errorIcon(20)]"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[errorBG]"
                                                                      options:0
                                                                      metrics:nil
                                                                        views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(10)-[message]-(14)-|"
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[errorIcon(30)]"
                                                                      options:0
                                                                      metrics:nil
                                                                        views:views]];
         
-        NSLayoutConstraint *errorIconTrailingConstraint = [NSLayoutConstraint constraintWithItem:self.errorIconImageView
+        NSLayoutConstraint *errorBGImageViewTrailingConstraint = [NSLayoutConstraint constraintWithItem:self.errorBGImageView
+                                                                                              attribute:NSLayoutAttributeTrailing
+                                                                                              relatedBy:NSLayoutRelationEqual
+                                                                                                 toItem:self.errorIconButton
+                                                                                              attribute:NSLayoutAttributeLeading
+                                                                                             multiplier:1.f
+                                                                                               constant:0.f];
+        errorBGImageViewTrailingConstraint.priority = UILayoutPriorityDefaultHigh;
+        [self addConstraint:errorBGImageViewTrailingConstraint];
+        
+        NSLayoutConstraint *messageLabelLeadingConstraint = [NSLayoutConstraint constraintWithItem:self.messageLabel
+                                                                                         attribute:NSLayoutAttributeLeading
+                                                                                         relatedBy:NSLayoutRelationEqual
+                                                                                            toItem:self.errorBGImageView
+                                                                                         attribute:NSLayoutAttributeLeading
+                                                                                        multiplier:1.f
+                                                                                          constant:0.f];
+        self.messageLabelLeadingConstraint = messageLabelLeadingConstraint;
+        [self addConstraint:messageLabelLeadingConstraint];
+        
+        NSLayoutConstraint *messageLabelTrailingConstraint = [NSLayoutConstraint constraintWithItem:self.messageLabel
+                                                                                          attribute:NSLayoutAttributeTrailing
+                                                                                          relatedBy:NSLayoutRelationEqual
+                                                                                             toItem:self.errorBGImageView
+                                                                                          attribute:NSLayoutAttributeTrailing
+                                                                                         multiplier:1.f
+                                                                                           constant:0.f];
+        self.messageLabelTrailingConstraint = messageLabelTrailingConstraint;
+        [self addConstraint:messageLabelTrailingConstraint];
+        
+        NSLayoutConstraint *errorIconTrailingConstraint = [NSLayoutConstraint constraintWithItem:self.errorIconButton
                                                                                        attribute:NSLayoutAttributeTrailing
                                                                                        relatedBy:NSLayoutRelationEqual
                                                                                           toItem:self
@@ -240,6 +362,86 @@
                                                                                         constant:-self.rightPadding];
         [self addConstraint:errorIconTrailingConstraint];
         self.errorIconTrailingConstraint = errorIconTrailingConstraint;
+        
+        NSLayoutConstraint *errorBGImageViewWidthConstraint = [NSLayoutConstraint constraintWithItem:self.errorBGImageView
+                                                                                           attribute:NSLayoutAttributeWidth
+                                                                                           relatedBy:NSLayoutRelationEqual
+                                                                                              toItem:nil
+                                                                                           attribute:NSLayoutAttributeNotAnAttribute
+                                                                                          multiplier:0.f
+                                                                                            constant:0.f];
+        errorBGImageViewWidthConstraint.priority = BSLayoutPriorityAlmostRequired;
+        [self addConstraint:errorBGImageViewWidthConstraint];
+        self.errorBGImageViewWidthConstraint = errorBGImageViewWidthConstraint;
+    }
+}
+
+#pragma mark - Handlers
+- (void)errorIconButtonAction
+{
+    self.errorIconButton.userInteractionEnabled = NO;
+    
+    if ( self.errorBGImageViewWidthConstraint.priority == BSLayoutPriorityAlmostRequired )
+    {
+        if ( [self.delegate respondsToSelector:@selector(bs_messageWillShow:)] )
+        {
+            [self.delegate bs_messageWillShow:self];
+        }
+        
+        [self showMessage];
+        [self reloadWith];
+        
+        [UIView animateWithDuration:self.showMessageAnimationDuration
+                              delay:0.f
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             self.errorBGImageView.alpha = 1.f;
+                         } completion:^(BOOL finished) {
+                             self.errorIconButton.userInteractionEnabled = YES;
+                             
+                             if ( [self.delegate respondsToSelector:@selector(bs_messageDidShow:)] )
+                             {
+                                 [self.delegate bs_messageDidShow:self];
+                             }
+                             
+                             if ( [self.superview isKindOfClass:[UITextField class]] )
+                             {
+                                 UITextField *textField = self.superview;
+                                 textField.rightView = nil;
+                                 textField.rightView = self;
+                             }
+                         }];
+    }
+    else
+    {
+        if ( [self.delegate respondsToSelector:@selector(bs_messageWillShow:)] )
+        {
+            [self.delegate bs_messageWillHide:self];
+        }
+        
+        [UIView animateWithDuration:self.showMessageAnimationDuration
+                              delay:0.f
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             self.errorBGImageView.alpha = 0.f;
+                         } completion:^(BOOL finished) {
+                             [self hideMessage];
+                             [self reloadWith];
+                             
+                             self.errorIconButton.userInteractionEnabled = YES;
+                             
+                             if ( [self.delegate respondsToSelector:@selector(bs_messageDidHide:)] )
+                             {
+                                 [self.delegate bs_messageDidHide:self];
+                             }
+                             
+                             if ( [self.superview isKindOfClass:[UITextField class]] )
+                             {
+                                 UITextField *textField = self.superview;
+                                 textField.rightView = nil;
+                                 textField.rightView = self;
+                             }
+                         }];
     }
 }
 
@@ -260,15 +462,63 @@
         NSString *fileName = @"BSResources";
         NSString *ext = @"bundle";
         NSURL *url = [[NSBundle mainBundle] URLForResource:fileName withExtension:ext];
-        if (!url) {
+        
+        if ( !url )
+        {
             url = [[NSBundle bundleForClass:[self class]] URLForResource:fileName withExtension:ext];
         }
-        if (url) {
+        
+        if ( url )
+        {
             resourcesBundle = [NSBundle bundleWithURL:url];
         }
     });
     
     return resourcesBundle;
+}
+
+- (void)showMessage
+{
+    self.messageLabelLeadingConstraint.constant = kBSMessageLabelLeadingConstant;
+    self.messageLabelTrailingConstraint.constant = kBSMessageLabelTrailingConstant;
+    self.errorBGImageViewWidthConstraint.priority = UILayoutPriorityDefaultLow;
+}
+
+- (void)hideMessage
+{
+    self.messageLabelLeadingConstraint.constant = 0.f;
+    self.messageLabelTrailingConstraint.constant = 0.f;
+    self.errorBGImageViewWidthConstraint.priority = BSLayoutPriorityAlmostRequired;
+}
+
+- (void)showMessageContainer
+{
+    [self showMessage];
+    self.errorBGImageView.alpha = 1.f;
+    
+    [self reloadWith];
+}
+
+- (void)hideMessageContainer
+{
+    [self hideMessage];
+    self.errorBGImageView.alpha = 0.f;
+    
+    [self reloadWith];
+}
+
+- (void)setupAlwaysShowingMessageView
+{
+    self.errorIconButton.userInteractionEnabled = NO;
+
+    [self showMessageContainer];
+}
+
+- (void)setupNonAlwaysShowingMessageView
+{
+    self.errorIconButton.userInteractionEnabled = YES;
+    
+    [self hideMessageContainer];
 }
 
 @end

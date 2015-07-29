@@ -2,11 +2,17 @@
 //  UITextField+BSErrorMessageView.m
 //
 //  Created by Beniamin Sarkisyan on 05.07.15.
+//  Copyright (c) 2015 Cleverpumpkin, Ltd. All rights reserved.
 //
 
 #import "UITextField+BSErrorMessageView.h"
 
 @implementation UITextField (BSErrorMessageView)
+
+- (BSErrorMessageView *)errorMessageView
+{
+    return [self.rightView isKindOfClass:[BSErrorMessageView class]] ? self.rightView : nil;
+}
 
 - (void)bs_setupErrorMessageViewWithMessage:(NSString *)message
 {
