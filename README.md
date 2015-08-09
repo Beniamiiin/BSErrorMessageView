@@ -1,6 +1,8 @@
 # BSErrorMessageView
 Error message view for text field
 
+![Image](https://github.com/BenjaminSarkisyan/BSErrorMessageView/blob/master/ScreenShots/BSErrorMessageView.png)
+
 ### Install
 `pod 'BSErrorMessageView',  :git => 'https://github.com/BenjaminSarkisyan/BSErrorMessageView.git'`
 
