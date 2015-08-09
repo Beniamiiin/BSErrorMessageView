@@ -14,7 +14,7 @@ Or if you want setup message view, then
 </br>
 ```
 BSErrorMessageView *errorMessageView = [BSErrorMessageView errorMessageViewWithMessage:@"Minimum 3 characters"];
-errorMessageView.mainTintColor = [UIColor greenColor];
+errorMessageView.tintColor = [UIColor greenColor];
 errorMessageView.textFont = [UIFont systemFontOfSize:16.f];
 
 [self.loginTextField bs_setupErrorMessageViewWithView:errorMessageView];

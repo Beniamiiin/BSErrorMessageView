@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0504BB7CAE4674B7CF0B41D8 /* Pods-BSErrorMessageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8759C32101DEFBE374CB3C49 /* Pods-BSErrorMessageView-dummy.m */; };
+		1F2741F2083C55986A0EBD1C /* UITextField+BSErrorMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3907596210BD0D38298BB4CF /* UITextField+BSErrorMessageView.h */; };
+		58B47030E1AA91CA91BC5D61 /* BSErrorMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6C26DA16CD7E3B19C6CE4A /* BSErrorMessageView.m */; };
+		64ED86BDA7B943B56517E570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053B33EB0518FCEDD82F3893 /* Foundation.framework */; };
+		7F2582BC64A3D6C9CCDB9920 /* UITextField+BSErrorMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D676494112037DF5D8A09621 /* UITextField+BSErrorMessageView.m */; };
+		9ED282A8E90E824BA5432AC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053B33EB0518FCEDD82F3893 /* Foundation.framework */; };
+		B3ED840C4FA41BFADBFD414C /* BSErrorMessageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F4DA0922E9ED72E4E935B70 /* BSErrorMessageView.h */; };
+		C089FEC7F33FC9272ABEF2FB /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6458A3983C3F8AF57E661F4 /* Pods-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A1B86D88B6B45FAC198CDD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 807D372E017DD2A4196123E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 747D3BF8B4E2269690F73BB2;
+			remoteInfo = "Pods-BSErrorMessageView";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		053B33EB0518FCEDD82F3893 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		05FB093093BF8F9E49E342C3 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2371B6A4039A8554955F45E6 /* Pods-BSErrorMessageView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BSErrorMessageView-Private.xcconfig"; sourceTree = "<group>"; };
+		277B7F65D853A3094D4B5553 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		345E5043401457E8E3F903C9 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3907596210BD0D38298BB4CF /* UITextField+BSErrorMessageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+BSErrorMessageView.h"; path = "Source/UITextField+BSErrorMessageView.h"; sourceTree = "<group>"; };
+		43B180FC52C022405168FB34 /* Pods-BSErrorMessageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BSErrorMessageView.xcconfig"; sourceTree = "<group>"; };
+		66011EC74141F701FA45B1E7 /* libPods-BSErrorMessageView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BSErrorMessageView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8759C32101DEFBE374CB3C49 /* Pods-BSErrorMessageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BSErrorMessageView-dummy.m"; sourceTree = "<group>"; };
+		8AFE600C06BFB0F8DC3876BE /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		8F6C26DA16CD7E3B19C6CE4A /* BSErrorMessageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BSErrorMessageView.m; path = Source/BSErrorMessageView.m; sourceTree = "<group>"; };
+		9F4DA0922E9ED72E4E935B70 /* BSErrorMessageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BSErrorMessageView.h; path = Source/BSErrorMessageView.h; sourceTree = "<group>"; };
+		A6458A3983C3F8AF57E661F4 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		B4657545B353D8AF9FB6C450 /* BSResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = BSResources.bundle; path = Source/BSResources.bundle; sourceTree = "<group>"; };
+		C4AF766AFECC59D19A8ED7F4 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		CA8556F40BFA19C7EA28BF78 /* Pods-BSErrorMessageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BSErrorMessageView-prefix.pch"; sourceTree = "<group>"; };
+		D676494112037DF5D8A09621 /* UITextField+BSErrorMessageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+BSErrorMessageView.m"; path = "Source/UITextField+BSErrorMessageView.m"; sourceTree = "<group>"; };
+		D6E611FFE4D6ABE96B2AB22E /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		EE3484F50C7B8CAFE68EEB55 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		FFFAA73C3B680B7BA0C7AE52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5238B3183A9DA56CD67CFEF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ED282A8E90E824BA5432AC1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1419F68AA3E510D567281ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64ED86BDA7B943B56517E570 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DF464EE1FDB8BB23D3A1976 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				43B180FC52C022405168FB34 /* Pods-BSErrorMessageView.xcconfig */,
+				2371B6A4039A8554955F45E6 /* Pods-BSErrorMessageView-Private.xcconfig */,
+				8759C32101DEFBE374CB3C49 /* Pods-BSErrorMessageView-dummy.m */,
+				CA8556F40BFA19C7EA28BF78 /* Pods-BSErrorMessageView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-BSErrorMessageView";
+			sourceTree = "<group>";
+		};
+		31E5B430620FFE7E667E7E46 = {
+			isa = PBXGroup;
+			children = (
+				345E5043401457E8E3F903C9 /* Podfile */,
+				9C67948D390FB0F011EB56F4 /* Frameworks */,
+				6AE016F988312411B4BBD8F3 /* Pods */,
+				6C351CCA6817C70BB52E793B /* Products */,
+				55461450A2C61AB9A6BB38E8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		55461450A2C61AB9A6BB38E8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB375FA9D3B5295531E495B2 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		57E12FB52DD2595CCE7E21E8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				053B33EB0518FCEDD82F3893 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		64D33E54F19117A56533F40F /* BSErrorMessageView */ = {
+			isa = PBXGroup;
+			children = (
+				9F4DA0922E9ED72E4E935B70 /* BSErrorMessageView.h */,
+				8F6C26DA16CD7E3B19C6CE4A /* BSErrorMessageView.m */,
+				3907596210BD0D38298BB4CF /* UITextField+BSErrorMessageView.h */,
+				D676494112037DF5D8A09621 /* UITextField+BSErrorMessageView.m */,
+				8CF140BF1D3ED4F6546F5DAD /* Resources */,
+				0DF464EE1FDB8BB23D3A1976 /* Support Files */,
+			);
+			path = BSErrorMessageView;
+			sourceTree = "<group>";
+		};
+		6AE016F988312411B4BBD8F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64D33E54F19117A56533F40F /* BSErrorMessageView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C351CCA6817C70BB52E793B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFFAA73C3B680B7BA0C7AE52 /* libPods.a */,
+				66011EC74141F701FA45B1E7 /* libPods-BSErrorMessageView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8CF140BF1D3ED4F6546F5DAD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B4657545B353D8AF9FB6C450 /* BSResources.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9C67948D390FB0F011EB56F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57E12FB52DD2595CCE7E21E8 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB375FA9D3B5295531E495B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05FB093093BF8F9E49E342C3 /* Pods-acknowledgements.markdown */,
+				8AFE600C06BFB0F8DC3876BE /* Pods-acknowledgements.plist */,
+				A6458A3983C3F8AF57E661F4 /* Pods-dummy.m */,
+				C4AF766AFECC59D19A8ED7F4 /* Pods-environment.h */,
+				D6E611FFE4D6ABE96B2AB22E /* Pods-resources.sh */,
+				EE3484F50C7B8CAFE68EEB55 /* Pods.debug.xcconfig */,
+				277B7F65D853A3094D4B5553 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F451B9996B5364854381F716 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3ED840C4FA41BFADBFD414C /* BSErrorMessageView.h in Headers */,
+				1F2741F2083C55986A0EBD1C /* UITextField+BSErrorMessageView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6C677E5BDCD34F58107794A7 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 384BAE6C743C6C82B892112F /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				E4DA2A47B56E02BC551CA0B5 /* Sources */,
+				5238B3183A9DA56CD67CFEF9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B81BD47A6CA1C91A4E6BCEA /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = FFFAA73C3B680B7BA0C7AE52 /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		747D3BF8B4E2269690F73BB2 /* Pods-BSErrorMessageView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BB305C0FDC32BC417892C51 /* Build configuration list for PBXNativeTarget "Pods-BSErrorMessageView" */;
+			buildPhases = (
+				A10933700B361E18DD39EC08 /* Sources */,
+				B1419F68AA3E510D567281ED /* Frameworks */,
+				F451B9996B5364854381F716 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-BSErrorMessageView";
+			productName = "Pods-BSErrorMessageView";
+			productReference = 66011EC74141F701FA45B1E7 /* libPods-BSErrorMessageView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		807D372E017DD2A4196123E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 4F9A8EDC0417049FD8C8F362 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 31E5B430620FFE7E667E7E46;
+			productRefGroup = 6C351CCA6817C70BB52E793B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6C677E5BDCD34F58107794A7 /* Pods */,
+				747D3BF8B4E2269690F73BB2 /* Pods-BSErrorMessageView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10933700B361E18DD39EC08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58B47030E1AA91CA91BC5D61 /* BSErrorMessageView.m in Sources */,
+				0504BB7CAE4674B7CF0B41D8 /* Pods-BSErrorMessageView-dummy.m in Sources */,
+				7F2582BC64A3D6C9CCDB9920 /* UITextField+BSErrorMessageView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4DA2A47B56E02BC551CA0B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C089FEC7F33FC9272ABEF2FB /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B81BD47A6CA1C91A4E6BCEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-BSErrorMessageView";
+			target = 747D3BF8B4E2269690F73BB2 /* Pods-BSErrorMessageView */;
+			targetProxy = 7A1B86D88B6B45FAC198CDD2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DC775643E0B79432FBE2D90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		60025DC3B8E6F6B37A222CE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2371B6A4039A8554955F45E6 /* Pods-BSErrorMessageView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-BSErrorMessageView/Pods-BSErrorMessageView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7348719A0E855609AB29C2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2371B6A4039A8554955F45E6 /* Pods-BSErrorMessageView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-BSErrorMessageView/Pods-BSErrorMessageView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B692AD9EC19D0BB46111C3E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 277B7F65D853A3094D4B5553 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C32BB55BFCC63F1719FE55BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE3484F50C7B8CAFE68EEB55 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D0C955B2AFE9344519737201 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		384BAE6C743C6C82B892112F /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C32BB55BFCC63F1719FE55BB /* Debug */,
+				B692AD9EC19D0BB46111C3E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F9A8EDC0417049FD8C8F362 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DC775643E0B79432FBE2D90 /* Debug */,
+				D0C955B2AFE9344519737201 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BB305C0FDC32BC417892C51 /* Build configuration list for PBXNativeTarget "Pods-BSErrorMessageView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7348719A0E855609AB29C2E2 /* Debug */,
+				60025DC3B8E6F6B37A222CE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 807D372E017DD2A4196123E6 /* Project object */;
+}

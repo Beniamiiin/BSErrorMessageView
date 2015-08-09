@@ -1,0 +1,21 @@
+PODS:
+  - BSErrorMessageView (1.0)
+
+DEPENDENCIES:
+  - BSErrorMessageView (from `https://github.com/BenjaminSarkisyan/BSErrorMessageView.git`,
+    branch `develop`)
+
+EXTERNAL SOURCES:
+  BSErrorMessageView:
+    :branch: develop
+    :git: https://github.com/BenjaminSarkisyan/BSErrorMessageView.git
+
+CHECKOUT OPTIONS:
+  BSErrorMessageView:
+    :commit: 879ea61a8fc3df1fcd6464171b96a0e58690bf0c
+    :git: https://github.com/BenjaminSarkisyan/BSErrorMessageView.git
+
+SPEC CHECKSUMS:
+  BSErrorMessageView: 0e2cf5439b0b68144c3e12ced79bd5324f924ce3
+
+COCOAPODS: 0.36.3
