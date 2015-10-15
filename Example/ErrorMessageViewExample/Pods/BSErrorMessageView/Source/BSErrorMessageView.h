@@ -27,6 +27,8 @@
 
 @property (nonatomic, copy) NSString *message;
 
+@property (nonatomic, copy) NSString *confirmationButtonText;
+
 /**
  *  Error message container and error icon background color
  *  If messageContainerTint and iconTint colors is not equal, then mainTintColor nil
