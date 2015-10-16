@@ -380,7 +380,7 @@ static CGFloat const kBSMessageLabelTrailingConstant = -13.5f;
 - (void)errorIconButtonAction
 {
     CGSize size = [self.messageLabel.text sizeWithAttributes:@{NSFontAttributeName:self.messageLabel.font}];
-    if ((size.width > self.messageLabel.bounds.size.width)) {
+    if ((size.width > self.superview.bounds.size.width)) {
         [[[UIAlertView alloc] initWithTitle:@"" message:self.messageLabel.text delegate:nil cancelButtonTitle:self.confirmationButtonText?:@"OK" otherButtonTitles: nil] show];
         return;
     }

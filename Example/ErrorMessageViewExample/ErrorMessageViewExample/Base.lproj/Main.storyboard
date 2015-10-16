@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,16 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8jg-y6-4P0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8jg-y6-4P0">
                                 <rect key="frame" x="16" y="30" width="288" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dDH-qD-JRa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="pr3-ry-i0S"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-LJ-1bX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-LJ-1bX">
                                 <rect key="frame" x="16" y="74" width="288" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -35,19 +39,22 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="pK7-Zq-GHo"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz6-Hb-kjM">
-                                <rect key="frame" x="137" y="169" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz6-Hb-kjM">
+                                <rect key="frame" x="16" y="169" width="288" height="44"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="nWt-Ob-Hlt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Enter">
+                                <state key="normal" title="Check">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="enterButtonAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LBD-Od-Pwe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Long Message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kN-sn-j47">
-                                <rect key="frame" x="16" y="119" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Long Message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kN-sn-j47">
+                                <rect key="frame" x="16" y="118" width="288" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -58,6 +65,22 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sz6-Hb-kjM" firstAttribute="leading" secondItem="8jg-y6-4P0" secondAttribute="leading" id="Boa-Gu-aBU"/>
+                            <constraint firstItem="2cc-LJ-1bX" firstAttribute="top" secondItem="8jg-y6-4P0" secondAttribute="bottom" constant="14" id="CN4-E3-Pkb"/>
+                            <constraint firstItem="2cc-LJ-1bX" firstAttribute="height" secondItem="8jg-y6-4P0" secondAttribute="height" id="GsN-IR-bx6"/>
+                            <constraint firstItem="2kN-sn-j47" firstAttribute="leading" secondItem="8jg-y6-4P0" secondAttribute="leading" id="QGQ-Dt-Zef"/>
+                            <constraint firstItem="2cc-LJ-1bX" firstAttribute="leading" secondItem="8jg-y6-4P0" secondAttribute="leading" id="RwI-NR-Wqb"/>
+                            <constraint firstItem="sz6-Hb-kjM" firstAttribute="trailing" secondItem="8jg-y6-4P0" secondAttribute="trailing" id="aNo-1A-tQG"/>
+                            <constraint firstItem="8jg-y6-4P0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="hL4-fK-gvY"/>
+                            <constraint firstItem="2kN-sn-j47" firstAttribute="trailing" secondItem="8jg-y6-4P0" secondAttribute="trailing" id="jqj-ra-MBj"/>
+                            <constraint firstAttribute="trailing" secondItem="8jg-y6-4P0" secondAttribute="trailing" constant="16" id="mI7-na-hYS"/>
+                            <constraint firstItem="sz6-Hb-kjM" firstAttribute="top" secondItem="2kN-sn-j47" secondAttribute="bottom" constant="21" id="o7L-1l-HCj"/>
+                            <constraint firstItem="2kN-sn-j47" firstAttribute="top" secondItem="2cc-LJ-1bX" secondAttribute="bottom" constant="14" id="qjF-mt-MsQ"/>
+                            <constraint firstItem="2cc-LJ-1bX" firstAttribute="trailing" secondItem="8jg-y6-4P0" secondAttribute="trailing" id="svd-VP-8dr"/>
+                            <constraint firstItem="8jg-y6-4P0" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="30" id="vGN-Gz-od2"/>
+                            <constraint firstItem="2kN-sn-j47" firstAttribute="height" secondItem="8jg-y6-4P0" secondAttribute="height" id="vk7-JG-WSZ"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
