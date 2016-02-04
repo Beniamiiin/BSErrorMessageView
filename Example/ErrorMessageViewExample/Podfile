@@ -1,1 +1,0 @@
-pod 'BSErrorMessageView', :git => 'https://github.com/BenjaminSarkisyan/BSErrorMessageView.git', :branch => 'develop'
