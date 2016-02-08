@@ -40,13 +40,6 @@
     [self.loginTextField bs_setupErrorMessageViewWithMessage:@"Minimum 6 characters"];
 }
 
-- (void)setupLongTextField
-{
-    [self defaultSetupTextField:self.longMessageTextField];
-    
-    [self.longMessageTextField bs_setupErrorMessageViewWithMessage:@"The error message was too long to show in the text box hence it will come up as an alert avoiding clipping of messages!, you can customize the alert button text as well!"];
-}
-
 - (void)setupPassTextField
 {
     [self defaultSetupTextField:self.passTextField];
@@ -57,6 +50,13 @@
     errorMessageView.messageAlwaysShowing = YES;
     
     [self.passTextField bs_setupErrorMessageViewWithView:errorMessageView];
+}
+
+- (void)setupLongTextField
+{
+    [self defaultSetupTextField:self.longMessageTextField];
+    
+    [self.longMessageTextField bs_setupErrorMessageViewWithMessage:@"The error message was too long to show in the text box hence it will come up as an alert avoiding clipping of messages!, you can customize the alert button text as well!"];
 }
 
 - (IBAction)enterButtonAction
