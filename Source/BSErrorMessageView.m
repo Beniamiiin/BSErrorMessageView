@@ -397,6 +397,13 @@ static CGFloat const kBSMessageLabelTrailingConstant = -13.5f;
         [self showMessage];
         [self reloadWith];
         
+        if ( [self.superview isKindOfClass:[UITextField class]] )
+        {
+            UITextField *textField = (UITextField *)self.superview;
+            textField.rightView = nil;
+            textField.rightView = self;
+        }
+        
         [UIView animateWithDuration:self.showMessageAnimationDuration
                               delay:0.f
                             options:UIViewAnimationOptionCurveEaseInOut
@@ -408,13 +415,6 @@ static CGFloat const kBSMessageLabelTrailingConstant = -13.5f;
                              if ( [self.delegate respondsToSelector:@selector(bs_messageDidShow:)] )
                              {
                                  [self.delegate bs_messageDidShow:self];
-                             }
-                             
-                             if ( [self.superview isKindOfClass:[UITextField class]] )
-                             {
-                                 UITextField *textField = (UITextField *)self.superview;
-                                 textField.rightView = nil;
-                                 textField.rightView = self;
                              }
                          }];
     }
@@ -455,7 +455,7 @@ static CGFloat const kBSMessageLabelTrailingConstant = -13.5f;
 - (void)reloadWith
 {
     CGRect frame = self.frame;
-    frame.size.width = [self systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].width;
+    frame.size.width = ceilf([self systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].width);
     self.frame = frame;
 }
 
